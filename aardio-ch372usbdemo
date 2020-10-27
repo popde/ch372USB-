@@ -1,0 +1,30 @@
+import console; 
+var dll = raw.loadDll("/CH37xWR.dll",,"cdecl");
+usbInit = dll.api("usbInit","bool(INT ulIndex)" );
+usbClose = dll.api("usbClose","bool(void)" );
+usbWrite = dll.api("usbWrite","INT(INT unEndPoint,pointer pSendBytes,INT unSendLength)" );
+usbRead = dll.api("usbRead","INT(INT unEndPoint,pointer pRecvBytes,INT unSendLength)" );
+ 
+console.log(usbInit(0))
+//var data = raw.buffer({byte a[4]={0xb0;0x4f;0x01;0x01}});
+var data2 = raw.buffer({byte a[3]={0xD0;0x2f;0x00}});
+console.log(usbWrite(2,data2,3));
+sleep(1000)
+ 
+var ret = raw.buffer(100,'\0');
+console.log(usbRead(2,ret,64))
+ 
+console.dump(raw.tostring(ret))
+ 
+var data = raw.buffer({byte a[4]={0xb0;0x4f;0x01;0x01}});
+console.log(usbWrite(2,data,4));
+sleep(1000)
+ 
+var ret = raw.buffer(100,'\0');
+console.log(usbRead(2,ret,64))
+ 
+console.dump(string.hex(raw.tostring(ret),""))
+ 
+console.log(usbClose())
+ 
+console.pause(true);
