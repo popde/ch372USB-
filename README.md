@@ -6,4 +6,4 @@
 
 只是把经常用到的三个函数给二次提出来了, 使用更加的便捷.
 提供了aardio的调用示例 , 已经得到实际的验证, 可以放心使用.
-[本帖来自Htmlayout学习网](https://www.htmlayout.cn/t/391)
+[本帖来自aardio上位机学习笔记](https://www.aardio.com.cn/t/391)
